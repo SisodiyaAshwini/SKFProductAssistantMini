@@ -18,7 +18,7 @@ An Azure Function–based application that uses Retrieval-Augmented Generation (
 
 ### 1. Clone or Download the Repository
 
-Unzip or clone the folder on your machine.
+Clone the repository on your machine.
 
 ### 2. Configure `local.settings.json`
 Rename "local.settings.sample.json" file to "local.settings.json"
