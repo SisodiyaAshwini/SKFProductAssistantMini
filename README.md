@@ -21,7 +21,8 @@ An Azure Function–based application that uses Retrieval-Augmented Generation (
 Unzip or clone the folder on your machine.
 
 ### 2. Configure `local.settings.json`
-
+Rename "local.settings.sample.json" file to "local.settings.json"
+Replace the Azure Open AI key and Redis connection string to actual values
 Place this file in the root of the `.API` project (e.g., `ProductAssistantMini.API/`):
 
 ```json
@@ -34,11 +35,13 @@ Place this file in the root of the `.API` project (e.g., `ProductAssistantMini.A
 
     "AzureOpenAI": {
     "Endpoint": "https://skf-openai-dev-eval.openai.azure.com/",
-    "Key": "<your key>", //copy key here
+    "Key": "<Key>",
     "Deployment": "gpt-4o-mini"
   },
-    "SystemMessage": "You are a product assistant for a manufacturing company that produces bearings, including ball bearings and deep groove ball bearings. Answer all user queries precisely and factually based on known product data. If you do not have enough information, say 'I don't have that information' instead of guessing. Your responses should be short, accurate, and specific to the product details."
-    
+    "SystemMessage": "You are a product assistant for a manufacturing company that produces bearings, including ball bearings and deep groove ball bearings. Use the provided information.          Don't add up the information. If the product isn’t found or the attribute doesn’t exist, handle it gracefully. Perhaps say: I’m sorry, I can’t find that information. Your           responses should be short, accurate, and specific to the product details.",
+    "RedisCache":{
+      "ConnectionString":"<Redis connection string>"
+      }
 }
 
 3. Build and run the project
